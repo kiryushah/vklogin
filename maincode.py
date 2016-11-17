@@ -11,7 +11,7 @@ class VkComLogIn(unittest.TestCase):
         self.driver.implicitly_wait(20)
 
 #Вход в Вконтакте
-    def test_LogIn(self):
+    def test_login(self):
         self.driver.get("http://www.vk.com")
         self.assertTrue(self.driver.find_element(*MainPageLocators.LOGIN_FIRST).is_displayed)
         self.driver.find_element(*MainPageLocators.LOGIN_FIRST).send_keys('solomon.testirovanie@mail.ru')
@@ -28,7 +28,7 @@ class VkComLogIn(unittest.TestCase):
         self.driver.find_element(*MainPageLocators.OUT_FIRST).click()
 
 #Вход в Вконтакте с ошибочным логином и паролем
-    def test_LogIn_False(self):
+    def test_login_false(self):
         self.driver.get("https://vk.com/login?act=mobile&hash=e4ce14a2a6a7de18")
         self.assertTrue(self.driver.find_element(*MainPageLocators.LOGIN_AFTER_OUT).is_displayed)        
         self.driver.find_element(*MainPageLocators.LOGIN_AFTER_OUT).send_keys('salomon.testirovanie@mail.ru')
